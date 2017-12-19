@@ -1,5 +1,7 @@
 package com.rapidapi.automation.sandbox.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import com.rapidapi.automation.sandbox.AbstractTestCase;
@@ -18,8 +20,9 @@ public class DynamicLoadingTest extends AbstractTestCase{
 		
 		LandingPage landingPage = new LandingPage(driver);
 		HelloWorldPage helloWorldPage = landingPage.clickStartButton();
-		String contentText = helloWorldPage.getFinishContent();
-		Assert.assertEquals("Hello World!", contentText);
+		String expectedContentText = "Hello World!";
+		String actualContentText = helloWorldPage.getFinishContent();
+		assertEquals(expectedContentText, actualContentText);
 		System.out.println("*** Test completed ***");
 	}
 	
@@ -31,8 +34,9 @@ public class DynamicLoadingTest extends AbstractTestCase{
 		
 		LandingPage landingPage = new LandingPage(driver);
 		HelloWorldPage helloWorldPage = landingPage.clickStartButton();
-		String contentText = helloWorldPage.getFinishContent();
-		Assert.assertEquals("Hey World!", contentText);
+		String expectedContentText = "Hey World!";
+		String actualContentText = helloWorldPage.getFinishContent();
+		assertEquals(expectedContentText, actualContentText);
 		System.out.println("*** Test completed ***");
 	}
 }
