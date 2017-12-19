@@ -17,5 +17,7 @@ public class BasePage extends AbstractPage {
 		ops.waitForElementInvisibility(loadingWidget);
 	}
 	
-	
+	public Boolean isAjaxCompleted() {
+		return ops.isAjaxCompleted();
+	}
 }

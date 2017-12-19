@@ -1,6 +1,7 @@
 package com.rapidapi.automation.sandbox.web;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -81,5 +82,16 @@ public class Operations {
 
 		System.out.println("Navigating back");
 		driver.navigate().back();		
-	}	
+	}
+	
+	public Boolean isAjaxCompleted() {
+		try {
+			System.out.println("Waiting for AJAX to complete loading");
+			webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='loading']")));
+			return true;
+		}catch (TimeoutException e) {
+			System.out.println("Attempt to load AJAX failed after " + timeOutInSeconds + " seconds");
+			return false;
+		}
+	}
 }

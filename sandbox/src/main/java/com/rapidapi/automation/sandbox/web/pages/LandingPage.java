@@ -18,4 +18,13 @@ public class LandingPage extends BasePage {
 		return new HelloWorldPage(driver);
 	}
 	
+	public HelloWorldPage clickStartButtonWaitAjax(){
+		ops.clickOnPageElement(startButton);
+		if(isAjaxCompleted()) {
+			return new HelloWorldPage(driver);			
+		}
+		System.out.println("Failed to load AJAX on page");
+		return null;
+	}
+	
 }
